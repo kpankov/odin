@@ -1,0 +1,12 @@
+project:
+  name: sample
+  variables:
+    MAIN_PROJECT: Emerald
+    MAIN_PROJECT_REV: A0
+    SOS_WORKSPACE: $USERNAME
+    SOS_VERSION: 3.2.5
+    TEST: $$TEST_PARAM
+  modules:
+    - name: firmware_builder
+      variables:
+        GIT_TAG: 0.0

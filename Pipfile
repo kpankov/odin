@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyyaml = "*"
+lxml = "*"
+gitpython = "*"
+pymongo = "*"
+atlassian-python-api = "*"
+distro = "*"
+tabulate = "*"
+pdfkit = "*"
+jira = "*"
+pytz = "*"
+jinja2 = "*"
+checksumdir = "*"
+pandas = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

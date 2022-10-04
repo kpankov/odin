@@ -1,0 +1,8 @@
+release:
+  version: HEAD
+  dependencies:
+    shared:
+      - name: reports
+        vcs: git
+        branch: master
+        remote_path: https://placeholder.xxxxxxxx

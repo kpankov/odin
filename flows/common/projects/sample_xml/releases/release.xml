@@ -1,0 +1,37 @@
+<release>
+    <version>HEAD</version>
+    <dependencies>
+        <hardware>
+            <dep>
+                <name>emerald</name>
+                <vcs>sos</vcs>
+                <tag>fpga_release_$SOS_VERSION RTL_RELEASE_$SOS_VERSION_dft_noEMU EMERALD_A0 EMERALD_A0_BRANCH_baseline</tag>
+                <local_path>/proj/emerald/workareas/$SOS_WORKSPACE</local_path>
+            </dep>
+        </hardware>
+        <software>
+            <dep>
+                <name>zshell</name>
+                <vcs>git</vcs>
+                <branch>dev/asic_mmodin</branch>
+                <remote_path>https://code.onsemi.com/scm/qclient/firmware-wifi.git</remote_path>
+                <local_path>zshell</local_path>
+            </dep>
+        </software>
+        <scripts>
+            <dep>
+                <name>fpga_automation</name>
+                <vcs>git</vcs>
+                <branch>master</branch>
+                <remote_path>https://code.onsemi.com/scm/qcsav/fpga_automation.git</remote_path>
+            </dep>
+        </scripts>
+        <shared>
+            <dep>
+                <name>builds_storage</name>
+                <type>smb</type>
+                <remote_path>smb://Quantenna%2Fkpankov@10.10.5.46/public/ENGINEERING/Hardware/ASIC/emu/Emerald/test_release</remote_path>
+            </dep>
+        </shared>
+    </dependencies>
+</release>

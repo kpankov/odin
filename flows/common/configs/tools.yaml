@@ -1,0 +1,13 @@
+tools:
+  common:
+    - name: LINUX_STD_PATH
+      executable: pwd
+      path: /bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+    - name: TEXT_EDITOR
+      executable: kwrite
+    - name: SSH
+      executable: ssh
+      bin_path: /usr/bin
+    - name: shell
+      executable: csh
+      bin_path: /bin/

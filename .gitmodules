@@ -1,0 +1,10 @@
+[submodule "flows/validation"]
+	path = flows/validation
+	url = https://code.onsemi.com/scm/qcsav/odin_validation.git
+	ignore = dirty
+	branch = master
+[submodule "flows/verification"]
+	path = flows/verification
+	url = https://code.onsemi.com/scm/qcsrtl/qcs-odin-verification-flow.git
+	ignore = dirty
+	branch = master
