@@ -33,36 +33,36 @@ def get_jira_qcs(core):
                 basic_auth=(core.project.get_var('JIRA_QCS_USER'), core.project.get_var('JIRA_QCS_PASS')))
 
 
-def get_jira_onsemi(core):
-    jira_options = {'server': 'https://jira.onsemi.com'}
+def get_jira_nosemi(core):
+    jira_options = {'server': 'https://jira.nosemi.com'}
 
-    return JIRA(options=jira_options, token_auth=core.project.get_var('JIRA_ONSEMI_TOKEN'))
+    return JIRA(options=jira_options, token_auth=core.project.get_var('JIRA_nosemi_TOKEN'))
 
 
-def get_issues(core, user_name_qcs, user_name_onsemi):
+def get_issues(core, user_name_qcs, user_name_nosemi):
     issues_list_qcs = get_jira_qcs(core).search_issues(
         'assignee = {} or reporter = {}'.format(user_name_qcs, user_name_qcs),
         expand='changelog,comments',
         maxResults=1000)
-    issues_list_onsemi = get_jira_onsemi(core).search_issues(
-        'assignee = {} or reporter = {}'.format(user_name_onsemi, user_name_onsemi),
+    issues_list_nosemi = get_jira_nosemi(core).search_issues(
+        'assignee = {} or reporter = {}'.format(user_name_nosemi, user_name_nosemi),
         expand='changelog,comments',
         maxResults=1000)
 
     logger.debug("{} issues fetched for {} (qcs).".format(issues_list_qcs.total, user_name_qcs))
-    logger.debug("{} issues fetched for {} (onsemi).".format(issues_list_onsemi.total, user_name_onsemi))
+    logger.debug("{} issues fetched for {} (nosemi).".format(issues_list_nosemi.total, user_name_nosemi))
 
-    return issues_list_qcs, issues_list_onsemi
+    return issues_list_qcs, issues_list_nosemi
 
 
-def sort_issues(core, issues_qcs, issues_onsemi, first_keys, time_delta):
+def sort_issues(core, issues_qcs, issues_nosemi, first_keys, time_delta):
     sorted_issues = {}
     sorted_issues_summary = {}
 
     final_statuses = ['Closed', 'Done', 'Resolved', 'Verified']
     new_onhold_statuses = ['New', 'On Hold', 'Unconfirmed', 'To Do', 'Open']
 
-    for issue in issues_qcs + issues_onsemi:
+    for issue in issues_qcs + issues_nosemi:
         found = False
         summary = True
         actual_keys = []
@@ -95,9 +95,9 @@ def sort_issues(core, issues_qcs, issues_onsemi, first_keys, time_delta):
             comments = get_jira_qcs(core).comments(issue)
             server = 'https://jira.quantenna.com'
         else:
-            if issue in issues_onsemi:
-                comments = get_jira_onsemi(core).comments(issue)
-                server = 'https://jira.onsemi.com'
+            if issue in issues_nosemi:
+                comments = get_jira_nosemi(core).comments(issue)
+                server = 'https://jira.nosemi.com'
             else:
                 logger.error("Undefined issue {} found!".format(str(issue)))
                 server = ''
@@ -190,8 +190,8 @@ def generate_files(core, team_report_header, team_list, team_labels, report_time
         html.write('<table class="table table-sm table-bordered">\n')
         html_mail.write('<table style="border: 1px solid gray; border-collapse: collapse;">\n')
 
-        issues_qcs, issues_onsemi = get_issues(core, person[1], person[2])  # (QCS, Onsemi)
-        sorted_issues, sorted_issues_summary = sort_issues(core, issues_qcs, issues_onsemi, team_labels, report_time_delta)
+        issues_qcs, issues_nosemi = get_issues(core, person[1], person[2])  # (QCS, nosemi)
+        sorted_issues, sorted_issues_summary = sort_issues(core, issues_qcs, issues_nosemi, team_labels, report_time_delta)
         if not full:
             sorted_issues = sorted_issues_summary
 
@@ -413,8 +413,7 @@ def run(core):
 
     # E-Mail
     if core.args.mail:
-        sender_mail = "noreply@onsemi.com"
-        # recipients = ["Satyajit.NagChowdhury@onsemi.com"]
+        sender_mail = "noreply@nobody.com"
         if core.args.mail_list == 'all':
             recipients = core.project.get_var('MAILING_LIST')
         else:
@@ -454,12 +453,6 @@ def run(core):
 
     if core.args.cnfl:
         print('Posting to confluence...')
-
-        # confluence = Confluence(
-        #     url='https://confluence.onsemi.com',
-        #     username=core.project.get_var('CONFLUENCE_USER'),
-        #     password=core.project.get_var('CONFLUENCE_TOKEN'),
-        #     cloud=True)
 
         # Workaround
         confluence = Confluence(

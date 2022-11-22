@@ -6,7 +6,7 @@ from sys import modules
 import logging
 
 import flows
-from core import Core, Logger, Project, Release, print_onsemi_logo
+from core import Core, Logger, Project, Release, print_logo
 
 """
 Globals
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     log.set_silent_mode(flows.get_silent_of_command(args.command))
 
-    print_onsemi_logo(log)
+    print_logo(log)
 
     if not flows.get_no_project_of_command(args.command):
         global_variables["PROJECT_FILE_PATH"] = get_project_file_path()

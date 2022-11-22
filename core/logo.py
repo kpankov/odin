@@ -1,8 +1,4 @@
 """Random logo generator
-
-Links:
-- https://patorjk.com/software/taag/#p=display&f=Graffiti&t=onsemi
-
 """
 
 # Std
@@ -11,7 +7,7 @@ from random import choice
 logos = {}
 
 
-def print_onsemi_logo(logger, random: bool = True):
+def print_logo(logger, random: bool = True):
     """Prints random or "original" logo
 
     Parameters

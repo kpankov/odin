@@ -3,59 +3,20 @@ project:
   variables:
     TEAM_NAME: AV
     TIME_DELTA: 7
-    JIRA_QCS_USER: placeholder
-    JIRA_QCS_PASS: placeholder
-    JIRA_ONSEMI_TOKEN: placeholder
+    JIRA_USER: placeholder
+    JIRA_PASS: placeholder
+    JIRA_TOKEN: placeholder
     CONFLUENCE_URL: placeholder
     CONFLUENCE_USER: placeholder
     CONFLUENCE_PASS: placeholder
     CONFLUENCE_SPACE: placeholder
     CONFLUENCE_PARENT: placeholder
     LABELS:
-      - BBIC6
-      - BBIC6P
-      - EmeraldA0
-      - EmeraldB0
-      - Onyx
-      - Automation
-      - Odin
-      - Zshell
       - Other
     TEAM:
       -
         - Konstantin Pankov (SW Manager)
         - kpankov
         - zbnnmf
-      -
-        - Roman Voronov (SW)
-        - rvoronov
-        - zbn9bf
-      -
-        - Mike Modin (SW)
-        - mmodin
-        - zbnh4g
-      -
-        - Viktor Khukhrin (HW Manager)
-        - vkhukhrin
-        - zbmgjn
-      -
-        - Pavel Poponov (HW)
-        - ppoponov
-        - zbpgxr
-      -
-        - Evgenii Nepochatykh (HW)
-        - enepochatykh
-        - zbn4xf
-      -
-        - Mike Basov (Automation)
-        - mbasov
-        - zbmv6n
     MAILING_LIST:
-      - Satyajit.NagChowdhury@onsemi.com
-      - Konstantin.Pankov@onsemi.com
-      - Roman.Voronov@onsemi.com
-      - Mikhail.Modin@onsemi.com
-      - Viktor.Khukhrin@onsemi.com
-      - zbpgxr@onsemi.com
-      - Evgenii.Nepochatykh@onsemi.com
-      - Mikhail.Basov@onsemi.com
+      - Konstantin.Pankov@mail.com
