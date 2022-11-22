@@ -72,7 +72,7 @@ class VcsGit(object):
             result["staged"] = [item.a_path for item in self._repo.index.diff('Head')]
         return result
 
-    def submodule_update(self) -> int:  # TODO: Switch to gitpython (https://jira.onsemi.com/browse/QCSDV-127)
+    def submodule_update(self) -> int:  # TODO: Switch to gitpython
         """You can get and update all submodules in the repository using this method.
         :return:
             Git submodule return code.

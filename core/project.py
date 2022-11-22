@@ -3,7 +3,6 @@ import logging
 import os
 import re
 import yaml
-from lxml import etree
 
 from core.logger import Logger
 

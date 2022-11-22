@@ -69,7 +69,7 @@ class Flows(object):
     def __init__(self) -> None:
         self._root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self._flows = []
-        self._flows.append(Flow(name="common", url="https://code.onsemi.com/scm/qcsav/odin.git"))
+        self._flows.append(Flow(name="common", url="https://github.com/kpankov/odin.git"))
         self._init_flows()
 
     def _init_flows(self):

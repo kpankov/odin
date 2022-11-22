@@ -35,7 +35,7 @@ def tmp_dir_remove(test_dir_path):
 
 class TestVcsGit(unittest.TestCase):
     _test_dir_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_test_repo_")
-    _test_git_url = "https://code.onsemi.com/scm/qcsav/odin.git"
+    _test_git_url = "https://github.com/kpankov/odin.git"
     _test_git_branch = "test"
     _test_git_hash = "1dc5d175569"
     _test_untracked_file_name = "test.test"

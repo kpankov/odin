@@ -5,7 +5,6 @@ import logging
 import os
 
 import yaml
-from lxml import etree
 
 DEFAULT_RELEASE_FOLDER = "releases"
 DEFAULT_RELEASE_FILENAME = "release"
